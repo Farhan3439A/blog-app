@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container my-4">
+
+  <h3>All Blogs</h3>
+  <% allBlogs.reverse().forEach(blog => { %>
+    <div class="card my-5">
+      <div class="card-body">
+        <% if (blog.authorId) { %>
+          <p>Author: <%= blog.authorId.name %></p>
+      <% } else { %>
+          <p>Author: Unknown</p>
+      <% } %>
+      <p class="text-muted">
+       Posted At: <%= blog.postedAt %>
+      </p>
+        <h5 class="card-title"><%= blog.title %></h5>
+        <p class="card-text">
+          <%= blog.content.substring(0, 60) %>
+          <% if (blog.content.length > 60) { %>
+            ...<a href="/readmore/<%= blog._id %>">Read More</a>
+          <% } %>
+        </p>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<%- include('partials/footer.ejs') %>

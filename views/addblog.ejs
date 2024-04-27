@@ -1,0 +1,14 @@
+<%- include("./partials/header") %>
+<div class="container mt-5">
+
+
+    <h3>Add Blogs </h3>
+    <form action="/addblog" method="post">
+        <input type="text" class="form-control" name="title"  placeholder="Enter Title" required>
+        <textarea name="content" id="" cols="30" rows="10" class="mt-3 form-control" placeholder="Enter blog contens" required></textarea>
+            <button type="submit" class="btn btn-primary mt-4">Add Blog</button>
+            <a href="/allblogs" class="btn btn-danger mt-4">Cancel</a>
+
+    </form>
+</div>
+<%- include("./partials/footer") %>

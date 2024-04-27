@@ -1,0 +1,20 @@
+<%- include("./partials/header") %>
+    <%- include("./partials/navbar") %>
+
+    <div class="container mt-5">
+        <h2>Read Full Blog</h2>
+        <form action="/readmore/<%= readMore._id %>" method="get" class="mt-5">
+            <% if (readMore.authorId) { %>
+                <p>Author: <%= readMore.authorId.name %></p>
+            <% } else { %>
+                <p>Author: Unknown</p>
+            <% } %>
+            <p class="text-muted">Posted At: <%= readMore.postedAt %></p>
+            <h5 class="card-title"><%= readMore.title %></h5>
+            <p class="card-text"><%= readMore.content %></p>
+            <a href="/allblogs" class="btn btn-primary ml-2">Back To Home</a>
+        </form>
+    </div>
+
+
+    <%- include("./partials/footer") %>
