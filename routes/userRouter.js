@@ -41,7 +41,7 @@ router.post('/register',
             if (await NewUser.save()) {
                 // console.log("User registered successfully...!");
                res.status(200);
-              return res.send('<script>alert("validation failed,plz re-login...!"); window.location.href = "/login";</script>');
+              return res.send('<script>alert("User registered successfully...!"); window.location.href = "/login";</script>');
             } else {
                 throw new Error("Registration failed...");
 
