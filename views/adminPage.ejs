@@ -41,6 +41,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Total Blogs</th> <!-- Added column for total blogs -->
                     <th>Action</th>
                 </tr>
             </thead>
@@ -49,9 +50,10 @@
                     <tr>
                         <td><%= user.name %></td>
                         <td><%= user.email %></td>
+                        <td><%= blogCounts[user._id] || 0 %></td> <!-- Display total blogs for user -->
                         <td>
                             <form action="/admin/delete/<%= user._id %>" method="get">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Remove</button>
                             </form>
                         </td>
                     </tr>

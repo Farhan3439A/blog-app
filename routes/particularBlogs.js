@@ -75,9 +75,8 @@ router.post('/edit/:_id', auth, async (req, res) => {
             return res.status(404).send('blog not found...!')
         }
        const updatedBlog= await Blog.findByIdAndUpdate(_id, { title, content })
-       console.log(updatedBlog);
-        console.log("data updated...!");
-        // res.end()
+    //    console.log(updatedBlog);
+        // console.log("data updated...!");
       return  res.redirect('/myblogs')
     } catch (error) {
         console.log(error);
@@ -100,7 +99,7 @@ router.get('/delete/:_id', auth, async (req, res) => {
 
         await User.findByIdAndUpdate(req.user._id, { '$pull': { blogs: _id } });
 
-        console.log('Blog deleted successfully');
+        // console.log('Blog deleted successfully');
      return   res.redirect('/myblogs');
     } catch (error) {
         console.log(error);
