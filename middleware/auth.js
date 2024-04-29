@@ -5,6 +5,7 @@ require('dotenv').config();
 const auth = async (req, res, next) => {
     try {
         const token = req.cookies.userToken;
+        // jb tk cookies save ni hoga hmlog home route pe hi rahege
         if (!token) {
             return res.redirect('/');
         }

@@ -4,10 +4,14 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        User Login
+                        Admin Register
                     </div>
                     <div class="card-body">
-                        <form action="/login" method="POST">
+                        <form action="/admin-register" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required placeholder="jhon doe">
+                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required placeholder="example@hotmail.com">
@@ -16,10 +20,14 @@
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required placeholder="At least 6 character">
                             </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <div class="mb-3">
+                                <label for="key" class="form-label">Secret Key</label>
+                                <input type="text" class="form-control" id="key" name="key" required placeholder="Ask DBA for Secret key">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
                         </form>
                         <div class="mt-3">
-                            Don't have an account? <a href="/register">Register here</a>
+                            Already An Admin? <a href="/admin-login">Login here</a>
                         </div>
                     </div>
                 </div>

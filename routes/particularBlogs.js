@@ -14,14 +14,14 @@ router.get('/myblogs', auth, async (req, res) => {
         const userBlogs = await Blog.find({ authorId: userId }).populate('authorId');
         // res.send(userBlogs)
 
-        res.render('myblogs', { MyBlogsData: userBlogs });
+       return res.render('myblogs', { MyBlogsData: userBlogs });
     } catch (err) {
         res.status(500).send('Error fetching blogs');
     }
 });
 
 router.get('/addblog', auth, (req, res) => {
-    res.render('addblog')
+   return res.render('addblog')
 })
 
 router.post('/addblog', auth, async (req, res) => {
@@ -43,7 +43,7 @@ router.post('/addblog', auth, async (req, res) => {
             // }
             // console.log(newBlog);
             // console.log(user);
-            res.redirect('myblogs')
+          return  res.redirect('/myblogs')
         }
     } catch (error) {
 
@@ -60,7 +60,7 @@ router.get('/edit/:_id', auth, async (req, res) => {
         if (!getEditData) {
             return res.status(404).send('Blog not found...!');
         }
-        res.render("editblog", { editdata: getEditData });
+      return  res.render("editblog", { editdata: getEditData });
     } catch (error) {
         console.log(err);
     }
@@ -78,7 +78,7 @@ router.post('/edit/:_id', auth, async (req, res) => {
        console.log(updatedBlog);
         console.log("data updated...!");
         // res.end()
-        res.redirect('/myblogs')
+      return  res.redirect('/myblogs')
     } catch (error) {
         console.log(error);
         res.status(500).send('Error updating blog');
@@ -101,7 +101,7 @@ router.get('/delete/:_id', auth, async (req, res) => {
         await User.findByIdAndUpdate(req.user._id, { '$pull': { blogs: _id } });
 
         console.log('Blog deleted successfully');
-        res.redirect('/myblogs');
+     return   res.redirect('/myblogs');
     } catch (error) {
         console.log(error);
         res.status(500).send('Error deleting blog');
@@ -118,7 +118,7 @@ router.get("/readmore/:_id", async (req, res) => {
         res.render("allBlogReadMore", { readMore: getBlog })
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+       return res.status(500).send('Internal Server Error');
     }
 });
 
