@@ -8,13 +8,10 @@ router.get('/admin-page', AdminAuth, async (req, res) => {
     try {
         const adminName = req.admin.name;
 
-        // Fetch all users
         const users = await User.find();
 
-        // Fetch all blogs
         const blogs = await Blog.find();
 
-        // Map user IDs to blog counts
         const blogCounts = {};
         users.forEach(user => {
             blogCounts[user._id] = user.blogs.length;
